@@ -3,8 +3,8 @@ spring:
     name: hotel-admin-microservice
   datasource:
     url: jdbc:postgresql://localhost:5432/hoteldb
-    username: postgres
-    password: postgreSQL
+    username: postgresUSERNAME
+    password: postgreSQLPASSWORD
   jpa:
     hibernate:
       ddl-auto: update
