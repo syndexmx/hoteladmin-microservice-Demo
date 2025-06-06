@@ -23,10 +23,7 @@ public class FloorSchema {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long floorSchemaId;
 
-    @JsonIgnore
-    @ManyToOne(cascade = CascadeType.DETACH)
-    @JoinColumn(name = "building_id")
-    private Building building;
+    private Long buildingId;
 
     private Integer floorNumber;
     private Integer numberOfRooms;

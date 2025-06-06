@@ -4,7 +4,7 @@ public record FloorSchemaDto (
 
         Long floorSchemaId,
         Integer floorNumber,
-        BuildingDto building,
+        Long buildingId,
         Integer numberOfRooms
 
 ) {

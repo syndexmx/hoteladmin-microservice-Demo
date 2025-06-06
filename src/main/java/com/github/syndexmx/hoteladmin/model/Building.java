@@ -32,7 +32,7 @@ public class Building {
     private Integer maintenanceYear;
     private Boolean elevator;
 
-    @OneToMany(cascade = CascadeType.DETACH)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<FloorSchema> floors;
 
     @JsonIgnore
@@ -43,6 +43,5 @@ public class Building {
     @JsonIgnore
     @UpdateTimestamp
     private LocalDateTime updatedAt;
-
 
 }
