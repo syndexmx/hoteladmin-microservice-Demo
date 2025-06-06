@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface BuildingMapper {
 
-    BuildingDto toBuildingDto(Building building); //map User to UserResponse
+    BuildingDto toBuildingDto(Building building);
 
     List<BuildingDto> toBuildingDtoList(List<Building> buildings);
 

@@ -6,34 +6,30 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "buildings")
-public class Building {
+@Table(name = "floor_schemas")
+public class FloorSchema {
 
     @Id
-            @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long buildingId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long floorSchemaId;
 
-    private String buildingName;
-    private String fullAddress;
-    private Integer numberOfFloors;
-    private Integer buildYear;
-    private Integer maintenanceYear;
-    private Boolean elevator;
+    @JsonIgnore
+    @ManyToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "building_id")
+    private Building building;
 
-    @OneToMany(cascade = CascadeType.DETACH)
-    private List<FloorSchema> floors;
+    private Integer floorNumber;
+    private Integer numberOfRooms;
 
     @JsonIgnore
     @CreationTimestamp
@@ -43,6 +39,5 @@ public class Building {
     @JsonIgnore
     @UpdateTimestamp
     private LocalDateTime updatedAt;
-
 
 }
